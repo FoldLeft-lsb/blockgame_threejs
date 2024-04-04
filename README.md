@@ -19,3 +19,7 @@ I've run into issues generating a Buffer mesh, I'll move on for now while I've g
 - 0 to select pickaxe 
 - F1 to save to browser localStorage 
 - F2 to load 
+
+![Overview and Settings](./screenshots/orbit_camera.png)
+
+![In Game](./screenshots/first_person.png)

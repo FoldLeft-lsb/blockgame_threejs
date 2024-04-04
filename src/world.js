@@ -5,10 +5,10 @@ import { DataStore } from "./data_store";
 export class World extends THREE.Group {
   async_loading = true;
 
-  draw_distance = 0;
+  draw_distance = 3;
   chunk_size = {
     width: 16,
-    height: 4
+    height: 32
   };
   params = {
     seed: 0,
