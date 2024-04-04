@@ -4,7 +4,7 @@
 
 Made following the tutorial by SimonDev https://github.com/simondevyoutube/Quick_MinecraftClone2 
 
-This is small and simple codebase, has decent coverage of three features and common patterns and results in a playable game, with opportunities for improvements and optimization. I'd like to do an input controler, buffer meshes rather than instancing, transparent blocks, a water shader 
+This is small and simple codebase, has decent coverage of three features and common patterns and results in a playable game, with opportunities for improvements and optimization. I'd like to do an input controller, buffer meshes rather than instancing, transparent blocks, a water shader 
 
 A good learning experience and refresher for JS and oop, it's been a few years 
 
