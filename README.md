@@ -2,7 +2,7 @@
 
 ### Assets not included 
 
-Made following the tutorial by SimonDev https://github.com/simondevyoutube/Quick_MinecraftClone2 
+Made following the tutorial by Coffee Code Create https://github.com/dgreenheck/minecraft-threejs-clone
 
 This is small and simple codebase, has decent coverage of three features and common patterns and results in a playable game, with opportunities for improvements and optimization. I'd like to do an input controller, buffer meshes rather than instancing, transparent blocks, a water shader 
 

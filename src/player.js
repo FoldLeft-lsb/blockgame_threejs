@@ -67,16 +67,39 @@ export class Player {
     this.raycaster.setFromCamera(CENTER_SCREEN, this.camera);
     const intersections = this.raycaster.intersectObject(world, true);
     if (intersections.length > 0 && intersections[0].point) {
-      // This was written for the instance mesh by the author,
-      // I've approximated without the instance and it's not 
-      // accurate, TODO
-      const target_point = intersections[0].point;
-      const target = new THREE.Vector3(
-        Math.floor(target_point.x),
-        Math.floor(target_point.y),
-        Math.floor(target_point.z)
-      );
-      this.selectedCoords = target.clone();
+
+      // TODO handle this raycast once I've removed the mesh instancing
+
+      // const target_point = intersections[0].point;
+      // const target = new THREE.Vector3(
+      //   Math.floor(target_point.x),
+      //   Math.floor(target_point.y),
+      //   Math.floor(target_point.z)
+      // );
+      // this.selectedCoords = target.clone();
+
+      // Original code
+      const intersection = intersections[0];
+
+      const chunk = intersection.object.parent;
+
+      // Get the transformation matrix for the selected block
+      const blockMatrix = new THREE.Matrix4();
+      intersection.object.getMatrixAt(intersection.instanceId, blockMatrix);
+
+      // Set the selected coordinates to the origin of the chunk,
+      // then apply the transformation matrix of the block to get
+      // the block coordinates
+      this.selectedCoords = chunk.position.clone();
+      this.selectedCoords.applyMatrix4(blockMatrix);
+
+      if (this.activeBlockId !== blocks.empty.id) {
+        // If we are adding a block, move it 1 block over in the direction
+        // of where the ray intersected the cube
+        this.selectedCoords.add(intersection.normal);
+      }
+
+
       this.selectionHelper.position.copy(this.selectedCoords);
       this.selectionHelper.visible = true;
     } else {
